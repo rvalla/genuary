@@ -1,0 +1,13 @@
+{
+	"outPath": "output/",
+  "outFile": "20210112_All2",
+	"width": 16,
+	"height": 9,
+	"resolution": 150,
+	"symbols": "PFE,BNTX,MRNA,AZN",
+	"VolumeDiv": 50000,
+	"startDate": "2020-11-01",
+	"endDate": "2021-01-01",
+	"colormap": "seismic",
+	"background": "20,20,20"
+}

@@ -1,0 +1,13 @@
+{
+	"outPath": "output/",
+  "outFile": "20210315_AztraZeneca",
+	"width": 16,
+	"height": 9,
+	"resolution": 150,
+	"symbols": "AZN",
+	"VolumeDiv": 15000,
+	"startDate": "2020-07-01",
+	"endDate": "2021-03-01",
+	"colormap": "RdYlGn",
+	"background": "159,13,63"
+}

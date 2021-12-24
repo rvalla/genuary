@@ -1,0 +1,8 @@
+{
+	"outPath": "output/",
+	"inPath": "input/",
+	"inFile": "teicolocu.txt",
+  "outFile": "20210314_rs_test",
+	"iterations": 100,
+	"sentenceSize": "3,8,15"
+}

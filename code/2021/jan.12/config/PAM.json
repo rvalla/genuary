@@ -1,0 +1,13 @@
+{
+	"outPath": "output/",
+  "outFile": "20210315_PampaEnergia",
+	"width": 9,
+	"height": 9,
+	"resolution": 150,
+	"symbols": "PAM",
+	"VolumeDiv": 200,
+	"startDate": "2020-07-01",
+	"endDate": "2021-03-01",
+	"colormap": "Spectral",
+	"background": "159,13,63"
+}

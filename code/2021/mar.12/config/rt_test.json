@@ -1,0 +1,9 @@
+{
+	"outPath": "output/",
+  "outFile": "20210314_rt_test",
+	"iterations": 100,
+	"wordsSize": "2,5,9",
+	"lineWidth": 6,
+	"letters": "french_l",
+	"frequency": "french_p"
+}
