@@ -1,4 +1,4 @@
-![icon](https://gitlab.com/azarte/genuary/-/raw/themoststable/public/assets/img/logo_64.png)
+![icon](https://azarte.gitlab.io/genuary/assets/img/logo_64.png)
 
 # genuary2021
 
