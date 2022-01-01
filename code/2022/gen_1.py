@@ -22,7 +22,8 @@ class Gen1():
 		active_color = rd.randint(0,color_count-1)
 		size = self.thingwh
 		for i in range(100):
-			c = self.colors[(active_color)%color_count]
+			active_color = (active_color+i)%color_count
+			c = self.colors[active_color]
 			size = (size[0] , (self.thingwh[1] + i%(7*self.steps[1])))
 			for j in range(100):
 				x = self.margins[0] + self.steps[0] / 2 + (j * fx)%100 * self.steps[0]
@@ -31,4 +32,4 @@ class Gen1():
 				size = (self.thingwh[0] + j%(7*self.steps[0]), size[1])
 				self.canvas.draw_rectangle(c, center, size)
 				c = ut.move_color(c, 1)
-			self.colors[(active_color+i)%color_count] = c
+			self.colors[active_color] = c
