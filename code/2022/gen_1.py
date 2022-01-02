@@ -24,12 +24,12 @@ class Gen1():
 		for i in range(100):
 			active_color = (active_color+i)%color_count
 			c = self.colors[active_color]
-			size = (size[0] , (self.thingwh[1] + i%(7*self.steps[1])))
+			size = (size[0] , (self.thingwh[1] + i%(4*self.steps[1])))
 			for j in range(100):
 				x = self.margins[0] + self.steps[0] / 2 + (j * fx)%100 * self.steps[0]
-				y = self.margins[1] + self.steps[1] / 2 + (i * fy + j * fx)%100 * self.steps[1]
+				y = self.margins[1] + self.steps[1] / 2 + (j * fy + i * fx)%100 * self.steps[1]
 				center = (x, y)
-				size = (self.thingwh[0] + j%(7*self.steps[0]), size[1])
+				size = (self.thingwh[0] + j%(4*self.steps[0]), size[1])
 				self.canvas.draw_rectangle(c, center, size)
 				c = ut.move_color(c, 1)
 			self.colors[active_color] = c
