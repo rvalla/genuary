@@ -60,10 +60,13 @@ class Gen3():
 		radius = (self.hw[0] // 5, self.hw[1] // 5)
 		angle = math.pi * 2 / self.virus_count
 		rotation = rd.random() * 3
-		for i in range(self.virus_count):
-			x = round(center[1] + math.cos(angle * i + rotation) * radius[1])
-			y = round(center[0] + math.sin(angle * i + rotation) * radius[0])
-			self.pixels[y][x].infection(self.virus[i%self.virus_count], i%self.virus_count)
+		if self.virus_count > 1:
+			for i in range(self.virus_count):
+				x = round(center[1] + math.cos(angle * i + rotation) * radius[1])
+				y = round(center[0] + math.sin(angle * i + rotation) * radius[0])
+				self.pixels[y][x].infection(self.virus[i%self.virus_count], i%self.virus_count)
+		else:
+			self.pixels[center[0]][center[1]].infection(self.virus[0], 0)
 
 	#Simulating a day...
 	def simulate_day(self):
