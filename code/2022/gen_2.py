@@ -13,8 +13,8 @@ class Gen2():
 		self.input = np.array(im.open(image_path))
 		self.margins = margins
 		self.background = background
-		self.hw = [self.input.shape[1] + margins[1] * 2, self.input.shape[0] + margins[0] * 2]
-		self.canvas = NCanvas(self.hw[0],self.hw[1],background)
+		self.hw = [self.input.shape[0] + margins[0] * 2, self.input.shape[1] + margins[1] * 2]
+		self.canvas = NCanvas(self.hw[1],self.hw[0],background)
 		self.border = border
 		self.build(self.border)
 
@@ -33,4 +33,4 @@ class Gen2():
 				color[channel] = v
 				self.input[r][(c+1)%self.input.shape[1]][channel] += e
 				self.input[(r+1)%self.input.shape[0]][c][channel] += e * 0.5
-				self.canvas.paint_pixel(color, c + self.margins[0], r + self.margins[1])
+				self.canvas.paint_pixel(color, c + self.margins[1], r + self.margins[0])

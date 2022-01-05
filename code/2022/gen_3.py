@@ -12,7 +12,7 @@ ut = GenUtil()
 class Gen3():
 	"The class to create something with space..."
 
-	def __init__(self, active_width, active_height, margins, background, virus_colors, virus_thresholds, days):
+	def __init__(self, active_width, active_height, margins, background, virus_colors, virus_thresholds, contacts_width, days):
 		self.margins = margins
 		self.background = background
 		self.hw = [active_height, active_width]
@@ -23,13 +23,12 @@ class Gen3():
 		self.virus_count = None
 		self.virus = []
 		self.pixels = []
-		self.simulate(virus_colors)
-		self.start_epidemic(virus_colors)
+		self.simulate(virus_colors, contacts_width)
 		self.paint_result()
 
 	#Simulating an epidemic...
-	def simulate(self, virus_colors):
-		self.start_epidemic(virus_colors)
+	def simulate(self, virus_colors, contacts_width):
+		self.start_epidemic(virus_colors, contacts_width)
 		print("Ready to simulate the epidemic...", end="\n")
 		while self.age < self.days:
 			print("Simulating day " + str(self.age), end="\r")
@@ -44,12 +43,14 @@ class Gen3():
 		print("Result is ready...", end="\n")
 
 	#Starting the epidemic...
-	def start_epidemic(self, virus_colors):
+	def start_epidemic(self, virus_colors, contacts_width):
 		for v in range(len(virus_colors)):
 			t = rd.uniform(self.virus_thresholds[0],self.virus_thresholds[1])
 			m = rd.randint(2,5)
 			d = rd.randint(3,8)
-			self.virus.append(GenVirus(virus_colors[v], t, m, d))
+			c = rd.randint(0,contacts_width)
+			contacts = (c - contacts_width, c)
+			self.virus.append(GenVirus(virus_colors[v], contacts, t, m, d))
 		self.virus_count = len(self.virus)
 		for h in range(self.hw[0]):
 			l = []
@@ -57,7 +58,7 @@ class Gen3():
 				l.append(GenPixel(w,h,self.background))
 			self.pixels.append(l)
 		center = (self.hw[0] // 2, self.hw[1] // 2)
-		radius = (self.hw[0] // 5, self.hw[1] // 5)
+		radius = (self.hw[0] // 4, self.hw[1] // 4)
 		angle = math.pi * 2 / self.virus_count
 		rotation = rd.random() * 3
 		if self.virus_count > 1:
@@ -70,16 +71,25 @@ class Gen3():
 
 	#Simulating a day...
 	def simulate_day(self):
-		for h in range(self.hw[0]):
-			for w in range(self.hw[1]):
-				if self.pixels[h][w].is_infected:
-					v = self.pixels[h][w].virus_id
-					for i in range(-3,3):
-						for j in range(-3,3):
-							t = rd.random()
-							if t < self.virus[v].threshold:
-								self.pixels[(h+i)%self.hw[0]][(w+j)%self.hw[1]].infection(self.virus[v], v)
-					self.pixels[h][w].update()
+		infected_pixels = self.infected_list()
+		for p in infected_pixels:
+			v = self.pixels[p[0]][p[1]].virus_id
+			limits = self.virus[v].contacts
+			for i in range(limits[0],limits[1]):
+				for j in range(limits[0],limits[1]):
+					t = rd.random()
+					if t < self.virus[v].threshold:
+						self.pixels[(p[0]+i)%self.hw[0]][(p[1]+j)%self.hw[1]].infection(self.virus[v], v)
+			self.pixels[p[0]][p[1]].update()
 		for v in self.virus:
 			v.update()
 		self.age += 1
+
+	#Building infected pixels list...
+	def infected_list(self):
+		l = []
+		for h in range(self.hw[0]):
+			for w in range(self.hw[1]):
+				if self.pixels[h][w].is_infected:
+					l.append((h,w))
+		return l
