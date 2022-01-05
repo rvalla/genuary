@@ -6,8 +6,9 @@ ut = GenUtil()
 class GenVirus():
 	"A class to infect pixels..."
 
-	def __init__(self, color, threshold, mutation_cycle, duration):
+	def __init__(self, color, contacts, threshold, mutation_cycle, duration):
 		self.color = color
+		self.contacts = contacts
 		self.threshold = threshold
 		self.mutation_cycle = mutation_cycle
 		self.last_mutation = 0
@@ -17,6 +18,6 @@ class GenVirus():
 	def update(self):
 		self.age += 1
 		if self.age - self.last_mutation > self.mutation_cycle:
-			self.threshold = self.threshold + rd.random() / 200
-			self.color = ut.move_color(self.color, 15)
+			self.threshold = self.threshold + (rd.random() - 0.3) / 120
+			self.color = ut.move_color(self.color, 10)
 			self.last_mutation = self.age
