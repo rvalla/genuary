@@ -38,7 +38,7 @@ class Gen6():
 			c = ut.color_grading(c, background, speed)
 
 	def get_signal_y(self, signal, angle):
-		y = math.pi / 2
+		y = 0
 		for s in signal:
-			y += math.sin(s[0] * angle) * s[1] * self.scale
+			y += math.sin(s[0] * (angle + s[2])) * s[1] * self.scale
 		return y
