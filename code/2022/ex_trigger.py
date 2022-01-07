@@ -40,3 +40,12 @@ for i in range(1):
 	colors = [(160,60,160),(0,0,0),(50,160,50)]
 	p = Gen5(660, 660, [210,630], (255,255,255), colors, [13,0], 1, False, 500, 3)
 	p.canvas.canvas.show()
+
+#Gen 6
+for i in range(5):
+	name = "gen6_" + str(i + 45)
+	color = (100,100,100)
+	signal_A = ut.random_signal(3,15,5)
+	signal_B = ut.random_signal(-4,15,4)
+	p = Gen6(800, 800, [100,100], (0,0,0), color, signal_A, signal_B, 0.01, 120, 10, True, 0.01)
+	p.canvas.canvas.show()

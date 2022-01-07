@@ -30,8 +30,8 @@ class Gen6():
 		for l in range(self.signal_width):
 			x1 = l + self.margins[1]
 			x2 = l + self.offset + self.margins[1]
-			y1 = signal_A_h + self.get_signal_y(self.signal_A, self.signal_resolution * l) + self.margins[1]
-			y2 = signal_B_h + self.get_signal_y(self.signal_B, self.signal_resolution * l) + self.margins[1]
+			y1 = signal_A_h + self.get_signal_y(self.signal_A, self.signal_resolution * l) + self.margins[0]
+			y2 = signal_B_h + self.get_signal_y(self.signal_B, self.signal_resolution * l) + self.margins[0]
 			self.canvas.draw_line(c, 0, (x1,y1), (x2,y2))
 			if palette:
 				c = ut.move_color(c, 2)
