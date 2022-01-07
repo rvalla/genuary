@@ -21,7 +21,6 @@ class Gen4():
 		self.cd = circle_d
 		self.lw = line_w
 		self.field_steps = field_steps
-		self.steps_size = (self.hw[0] / self.field_steps[0], self.hw[1] / self.field_steps[1])
 		self.lines = lines
 		self.field = self.load_field(field_type, angle_var)
 		self.paint()
@@ -85,11 +84,11 @@ class Gen4():
 					a = self.look_for_angle(p)
 					if not self.circles:
 						np = self.get_new_point(p, a, rd.randint(1,self.hw[0]//75))
-						self.canvas.draw_line(self.colors[(t//offset)%len(self.colors)], self.lw, (p[0]+self.margins[1],p[1]+self.margins[0]), (np[0]+self.margins[1],np[1]+self.margins[0]))
+						self.canvas.draw_line(self.colors[(t//offset)%c_count], self.lw, (p[0]+self.margins[1],p[1]+self.margins[0]), (np[0]+self.margins[1],np[1]+self.margins[0]))
 					else:
 						s = math.sin(0.1 * t) * self.cd
 						np = self.get_new_point(p, a, s)
-						self.canvas.draw_circle(self.colors[(t//offset)%len(self.colors)], (np[0]+self.margins[1],np[1]+self.margins[0]), s)
+						self.canvas.draw_circle(self.colors[(t//offset)%c_count], (np[0]+self.margins[1],np[1]+self.margins[0]), s)
 					p = np
 				t += 1
 
