@@ -42,10 +42,32 @@ for i in range(1):
 	p.canvas.canvas.show()
 
 #Gen 6
-for i in range(5):
+for i in range(1):
 	name = "gen6_" + str(i + 45)
 	color = (100,100,100)
 	signal_A = ut.random_signal(3,15,5)
 	signal_B = ut.random_signal(-4,15,4)
 	p = Gen6(800, 800, [100,100], (0,0,0), color, signal_A, signal_B, 0.01, 120, 10, True, 0.01)
+	p.canvas.canvas.show()
+
+#Gen 7
+for i in range(1):
+	name = "gen7_" + str(i + 26)
+	color = (240,0,100)
+	p = Gen7(600, 600, [100,100], (255,255,255), color, 10, 5)
+	p.canvas.canvas.show()
+
+#Gen 7B
+for i in range(1):
+	name = "gen7B_" + str(i + 5)
+	color = (240,0,100)
+	p = Gen7B(600, 600, [100,100], (255,255,255), color, 50, 0)
+	p.canvas.canvas.show()
+
+#Gen 8
+for i in range(1):
+	name = "gen8_" + str(i + 26)
+	color = (0,0,0)
+	signal = ut.random_signal(2,10,5)
+	p = Gen8(1600, 800, [140,160], (255,255,255), color, signal, 0.01, 15, 34, False, 0.08)
 	p.canvas.canvas.show()
