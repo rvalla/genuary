@@ -17,9 +17,9 @@ class Gen7():
 		self.canvas = DCanvas(self.hw[1] + margins[1] * 2, self.hw[0] + margins[0] * 2, background)
 		self.lw = line_w
 		self.points = self.load_points(points)
-		self.paint(background)
+		self.paint()
 
-	def paint(self, background):
+	def paint(self):
 		for p1 in range(len(self.points)):
 			for p2 in self.points[p1:]:
 				self.canvas.draw_line(self.color.c, self.lw, self.points[p1], p2)

@@ -72,10 +72,10 @@ class GenUtil():
 	def random_signal(self, base_frequency, base_amplitude, components):
 		signal = []
 		for c in range(components):
-			f = rd.random() * base_frequency
+			fq = rd.random() * base_frequency
 			a = base_amplitude / (c + 1)
 			fase = rd.random() * math.pi * 2
-			signal.append((f, a, f))
+			signal.append((fq, a, fase))
 		return signal
 
 	#A function to build a harmonic signal...
@@ -85,5 +85,5 @@ class GenUtil():
 			fq = base_frequency * (c + 1)
 			a = base_amplitude / (c + 1)
 			fase = rd.random() * math.pi * 2
-			signal.append((fq, a, f))
+			signal.append((fq, a, fase))
 		return signal

@@ -24,7 +24,6 @@ class Gen8():
 
 	def paint(self, background, lines, grading, speed):
 		signal_h = self.hw[0] // 2
-		c = self.color
 		for l in range(lines):
 			for s in range(self.signal_width):
 				x = s + self.margins[1]
