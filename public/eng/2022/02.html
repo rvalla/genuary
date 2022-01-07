@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<!-- General -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Rodrigo Valla">
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:creator" content="@rvallafoto">
+	<meta name="twitter:url" content="https://azarte.gitlab.io/genuary">
+	<meta name="twitter:title" content="az.genuary: 2022-x-02" />
+	<meta name="twitter:description" content="Dithering." />
+	<meta name="twitter:image" content="https://azarte.gitlab.io/genuary/assets/img/2022_02_r.jpg">
+	<!-- Open Graph -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://azarte.gitlab.io/genuary">
+	<meta property="og:title" content="az.genuary: 2022-x-02" />
+	<meta property="og:description" content="Dithering." />
+	<meta property="og:image" content="https://azarte.gitlab.io/genuary/assets/img/2022_02_r.jpg">
+	<!-- Style -->
+	<link rel="stylesheet" href="../../assets/css/page.css">
+	<link rel="icon" href="../../assets/img/logo_64.png"  type="image/png">
+	<title>az.genuary: 2022-x-02</title>
+</head>
+
+<body>
+	<section>
+	<div class="page">
+		<div class="container-1c">
+			<div class="box green">
+				<h1>2022-x-02</h1>
+				<p>A dithering algorithm allows us to reduce the number of colors on an image without loosing much information.
+					You simply assign the nearest possible color to each pixel. The secret is to save the error (the difference
+					between the original color and the assigned one) to take it into account in the future. But I am not interested
+					in reduce colors, quite the opposite.</p>
+			</div>
+			<div class="box blue">
+				<img src="../../assets/img/2022_02_r.jpg" />
+			</div>
+			<div class="box red">
+				<h1>Film photography</h1>
+				<p>I decided to paint some of my photographs. I choose some of the analogue monochrome ones. For each row of
+					pixels I let the computer to select to which color channel apply the dithering algorithm. In a grayscale
+					image all rgb pixels are something like (n,n,n), where 0 &#8804; n &#8804; 255. If you change one of the
+					numbers, a color appear immediately.</p>
+			</div>
+			<div class="box green">
+				<img src="../../assets/img/2022_02_r3.jpg" />
+			</div>
+			<div class="box red">
+				<img src="../../assets/img/2022_02_r2.jpg" />
+			</div>
+			<div class="box blue">
+				<img src="../../assets/img/2022_02_r5.jpg" />
+			</div>
+			<div class="box red">
+				<p><a href="https://gitlab.com/azarte/genuary/-/tree/themoststable/code/2022"><button class="small">code</button></a>
+					<a href="../2022.html"><button class="small">back</button></a></p>
+			</div>
+		</div>
+	</div>
+	</section>
+</body>
+</html>
