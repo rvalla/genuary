@@ -12,8 +12,7 @@ and be part of **#genuary**.
 
 ## repository structure
 
-All website's material is in *public* folder. Some things are not there (some .css files are in the main *azarte*
-site repository). The *code* folder contains all the work I did inspired by **#genueary**'s prompts.  
+All website's material is in *public* folder. The *code* folder contains all the work I did inspired by **#genueary**'s prompts.  
 
 ## azarte_bot
 
