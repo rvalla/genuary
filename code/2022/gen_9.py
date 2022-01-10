@@ -1,5 +1,4 @@
 import random as rd
-from PIL import Image as im
 from gen_util import GenUtil
 from gen_drawing_canvas import DCanvas
 
