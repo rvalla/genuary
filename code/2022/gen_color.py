@@ -1,7 +1,7 @@
 import random as rd
 
 class GenColor():
-	"A class to creat a living color..."
+	"A class to create a living color..."
 
 	def __init__(self, color):
 		self.o = color

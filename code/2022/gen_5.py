@@ -9,9 +9,9 @@ ut = GenUtil()
 class Gen5(Gen1):
 	"The class to destroy a square..."
 
-	def __init__(self, active_width, active_height, margins, background, colors, factors, sizefactor, constant_size,
-					cuts, cuts_width):
-		Gen1.__init__(self, active_width, active_height, margins, background, colors, factors, sizefactor, constant_size)
+	def __init__(self, active_width, active_height, margins, background, colors, color_motion, factors, sizefactor,
+					constant_size, cuts, cuts_width):
+		Gen1.__init__(self, active_width, active_height, margins, background, colors, color_motion, factors, sizefactor, constant_size)
 		self.color = background
 		self.cuts = self.load_cuts(cuts, self.canvas.hw[1], self.canvas.hw[0])
 		self.cuts_width = cuts_width
