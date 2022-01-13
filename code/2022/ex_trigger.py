@@ -8,6 +8,8 @@ from gen_7 import Gen7
 from gen_7B import Gen7B
 from gen_8 import Gen8
 from gen_9 import Gen9
+from gen_10 import Gen10
+from gen_13 import Gen13
 from gen_util import GenUtil
 import random as rd
 
@@ -86,4 +88,17 @@ for i in range(1):
 	windows = [(160,160,160,50),(120,120,120,50),(90,90,90,50)]
 	color = [(60,100,190),(100,70,70)]
 	p = Gen9(600, 600, [50,50], (255,255,255), color, 30, windows, 30, False, 10, False)
+	p.canvas.canvas.show()
+
+#Gen 10
+for i in range(1):
+	name = "gen10_" + str(i + 16)
+	p = Gen10(500,500,[50,50],(255,255,255),(100,100,100),30,20,5,10)
+	p.canvas.canvas.show()
+
+#Gen 13
+for i in range():
+	name = "gen13_" + str(i + 65)
+	colors = [(90,90,90,100), (120,120,120,100), (120,60,60,100),(120,90,60,100)]
+	p = Gen13(500,500,[100,100],(255,255,255),[6,60],colors,[5,10],0.8,True)
 	p.canvas.canvas.show()

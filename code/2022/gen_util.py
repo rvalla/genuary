@@ -89,7 +89,7 @@ class GenUtil():
 		return signal
 
 	def gen_rectangle(self, canvas, w, h, location, density, colors, color_motion, factors, size_factor, constant_size):
-		steps = [h / density[0], w / density[1]]
+		steps = [h // density[0], w // density[1]]
 		thinghw = [steps[1] * size_factor, steps[0] * size_factor]
 		color_count = len(colors)
 		active_color = rd.randint(0,color_count-1)
