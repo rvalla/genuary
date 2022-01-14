@@ -1,5 +1,6 @@
 let thecolor, blueclick, center;
 let windy, wind;
+let button, bw, bx, by, clicks;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
@@ -24,11 +25,16 @@ function draw() {
 		noiseY = i * random(-5,5) + wind[1];
 		point(mouseX + noiseX, mouseY + noiseY);
 	}
+	image(button, bx, by, bw, bw);
 }
 
 function processEv() {
-	updateColor(mouseX, mouseY);
-	wind = [0,0];
+	if (buttonClick()){
+		saveCanvas("genuary2022_day15_" + clicks);
+	} else {
+		updateColor(mouseX, mouseY);
+		wind = [0,0];
+	}
 	event.preventDefault();
   return false;
 }
@@ -51,7 +57,15 @@ function getSandSize(){
 	return random([0,0,0,0,0,1,1,1,2,2,3,]);
 }
 
+function buttonClick(){
+	return dist(mouseX, mouseY, bx + bw / 2, by + bw / 2) < bw;
+}
+
 function startConfig(config){
+	button = loadImage("../assets/img/logo_256.png");
+	bw = width / 12;
+	bx = width / 2 - bw / 2;
+	by = height - bw * 1.5;
 	let w = config.windy;
 	if (typeof(w) === "string" && w === "false") {
 		windy = boolean(w);

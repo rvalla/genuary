@@ -30,16 +30,16 @@ class Gen13():
 				if s == 0:
 					ut.gen_rectangle(self.canvas, self.hw[1], height, location, self.densities[0], [color], color_motion[0], factors, size_factor, constant_size)
 				else:
-					ut.gen_rectangle(self.canvas, self.hw[1], height, location, self.densities[0], [color],color_motion[1], factors, size_factor, constant_size)
+					ut.gen_rectangle(self.canvas, self.hw[1], height, location, self.densities[0], [color], color_motion[1], factors, size_factor, constant_size)
 			else:
 				if s == 2:
 					ut.gen_rectangle(self.canvas, 2 * space, height, location, self.densities[1], [color], color_motion[0], factors, size_factor, constant_size)
 					location[1] += space * 3
 					ut.gen_rectangle(self.canvas, 2 * space, height, location, self.densities[1], [color], color_motion[0], factors, size_factor, constant_size)
 				else:
-					ut.gen_rectangle(self.canvas, 2 * space, height, location, self.densities[1], [color],color_motion[1], factors, size_factor, constant_size)
+					ut.gen_rectangle(self.canvas, 2 * space, height, location, self.densities[1], [color], color_motion[1], factors, size_factor, constant_size)
 					location[1] += space * 3
-					ut.gen_rectangle(self.canvas, 2 * space, height, location, self.densities[1], [color],color_motion[1], factors, size_factor, constant_size)
+					ut.gen_rectangle(self.canvas, 2 * space, height, location, self.densities[1], [color], color_motion[1], factors, size_factor, constant_size)
 			y += 2 * height
 
 	def get_factors(self, case):
