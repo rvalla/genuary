@@ -12,6 +12,7 @@ from gen_10 import Gen10
 from gen_13 import Gen13
 from gen_15 import Gen15
 from gen_16 import Gen16
+from gen_17 import Gen17
 from gen_util import GenUtil
 import random as rd
 
@@ -118,4 +119,11 @@ for i in range(1):
 	color = (160,160,160)
 	signal = ut.random_signal(0.2,20,3)
 	p = Gen16(800, 600, [100,100], (255,255,255), color, [1,1,1], signal, 5, 400, 150)
+	p.canvas.canvas.show()
+
+#Gen 17
+for i in range(1):
+	name = "gen17_" + str(i + 16)
+	colors = [(220,30,60),(230,100,100),(120,50,50)]
+	p = Gen17(800, 800, [100,100], (255,255,255), colors, 3, 250, 21, 8)
 	p.canvas.canvas.show()

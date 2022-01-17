@@ -37,6 +37,13 @@ class GenColor():
 		b = (self.c[2] + motion[2] * self.d[2])%255
 		self.c = (r,g,b)
 
+	#Getting close to another color...
+	def getting_close(self, the_other_color):
+		r = self.c[0] + (the_other_color[0] - self.c[0]) // 8
+		g = self.c[1] + (the_other_color[1] - self.c[1]) // 8
+		b = self.c[2] + (the_other_color[2] - self.c[2]) // 8
+		self.c = (r,g,b)
+
 	#Checking if it is posible to move...
 	def check_directions(self, motion):
 		for d in range(len(self.d)):
