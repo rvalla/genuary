@@ -17,7 +17,7 @@ class Gen16():
 		self.scale = scale
 		self.lines_h = lines_height
 		self.color = GenColor(color)
-		self.color.d = self.set_color_directions(self.color)
+		self.color.d = self.set_color_directions()
 		self.axis = self.hw[0] // 2 + self.margins[0]
 		self.canvas = DCanvas(self.hw[1] + self.margins[1] * 2, self.hw[0] + self.margins[0] *  2, background)
 		self.draw_lines(lines, color_motion)
@@ -32,7 +32,7 @@ class Gen16():
 			self.canvas.draw_line(self.color.c, 0, (x,y), (x,y+self.lines_h))
 			self.color.independent_overflow(color_motion)
 
-	def set_color_directions(self, color):
+	def set_color_directions(self):
 		r = rd.choice([-1,1])
 		g = rd.choice([-1,1])
 		b = rd.choice([-1,1])

@@ -30,7 +30,7 @@ class GenColor():
 		b = (self.c[2] + motion * self.d[2])%255
 		self.c = (r,g,b)
 
-	#Moving a color without stopping...
+	#Moving a color without stopping independently...
 	def independent_overflow(self, motion):
 		r = (self.c[0] + motion[0] * self.d[0])%255
 		g = (self.c[1] + motion[1] * self.d[1])%255
