@@ -18,13 +18,13 @@ class Gen15():
 		self.wind = [0,0] #The wind moves the falling sand...
 		self.wind_range = wind_range
 		self.canvas = DCanvas(self.hw[1], self.hw[0], background)
-		self.oscillation(times, grains)
+		self.oscillation(color_motion, times, grains)
 
-	def oscillation(self, times, grains):
+	def oscillation(self, color_motion, times, grains):
 		for t in range(times):
 			self.pendulum.update()
 			self.drop_sand(grains)
-			self.color.move(1)
+			self.color.move(color_motion)
 			if self.windy:
 				self.update_wind()
 
