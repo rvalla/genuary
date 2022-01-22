@@ -79,7 +79,10 @@ class Gen3():
 				for j in range(limits[0],limits[1]):
 					t = rd.random()
 					if t < self.virus[v].threshold:
-						self.pixels[(p[0]+i)%self.hw[0]][(p[1]+j)%self.hw[1]].infection(self.virus[v], v)
+						x = p[1] + j
+						y = p[0] + i
+						if y >= 0 and y < self.hw[0] and x >= 0 and x < self.hw[1]:
+							self.pixels[y][x].infection(self.virus[v], v)
 			self.pixels[p[0]][p[1]].update()
 		for v in self.virus:
 			v.update()

@@ -36,6 +36,10 @@ class DCanvas():
 		b = (a[0] + size[0], a[1] + size[1])
 		self.draw.rounded_rectangle([a,b], radius=r, fill=color, outline=None)
 
+	#Function to write a message...
+	def write(self, x, y, cell, message, font, color):
+		self.draw.text((x,y), message, anchor="mm", font=font, fill=color)
+
 	#Function to save the drawing...
 	def save(self, filepath, filename):
 		self.canvas.save(filepath + filename + ".jpg")

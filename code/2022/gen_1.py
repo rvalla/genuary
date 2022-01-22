@@ -13,5 +13,5 @@ class Gen1():
 		self.margins = margins
 		self.canvas = DCanvas(self.hw[1] + margins[1] * 2, self.hw[0] + margins[0] * 2, background)
 		self.colors = colors
-		ut.gen_rectangle(self.canvas, self.hw[1], self.hw[0], self.margins, [100,100], self.colors, color_motion,
+		ut.gen_alpha_rectangle(self.canvas, self.hw[1], self.hw[0], self.margins, [100,100], self.colors, color_motion,
 							factors, size_factor, constant_size)

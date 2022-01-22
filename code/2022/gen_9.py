@@ -56,7 +56,7 @@ class Gen9():
 						window_on = False
 				if window_on:
 					y = floor - margin - height - l * (height + margin)
-					ut.gen_rectangle(self.canvas, width, height, [y,x], density, [color], motion, factors, 1, constant_windows)
+					ut.gen_alpha_rectangle(self.canvas, width, height, [y,x], density, [color], motion, factors, 1, constant_windows)
 
 	def windows_widths(self, margin, total_width, row):
 		width = 0
