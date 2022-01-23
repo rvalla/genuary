@@ -1,14 +1,12 @@
 import math
 import random as rd
-import numpy as np
-from PIL import Image as im
 from gen_util import GenUtil
 from gen_drawing_canvas import DCanvas
 
 ut = GenUtil()
 
 class Gen4():
-	"The class to create something with the next next Fidenza (Ok, I will try al least with a flow filed)..."
+	"The class to create something with the next next Fidenza (Ok, I will try al least with a flow field)..."
 
 	def __init__(self, active_width, active_height, margins, background, colors, field_type, field_steps,
 					line_w, circle_d, angle_var, lines, circles):

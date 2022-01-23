@@ -63,7 +63,10 @@ function buttonClick(){
 
 function startConfig(config){
 	button = loadImage("../assets/img/logo_256.png");
-	bw = width / 12;
+	bw = width / 20;
+	if (width < height){
+		bw = height / 20s;
+	}
 	bx = width / 2 - bw / 2;
 	by = height - bw * 1.5;
 	let w = config.windy;
