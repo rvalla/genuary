@@ -1,4 +1,4 @@
-let thecolor, blueclick, center;
+let bg, thecolor, blueclick, center;
 let windy, wind;
 let button, bw, bx, by, clicks;
 
@@ -9,7 +9,7 @@ function setup() {
 	thecolor = color(0,0,0);
 	config = getURLParams();
 	startConfig(config);
-	background(255);
+	background(bg);
 	frameRate(60);
 	print("Genuary 2022: Sand...");
 }
@@ -63,15 +63,16 @@ function buttonClick(){
 
 function startConfig(config){
 	button = loadImage("../assets/img/logo_256.png");
+	bg = color(0,51,66);
 	bw = width / 20;
 	if (width < height){
-		bw = height / 20s;
+		bw = height / 12;
 	}
-	bx = width / 2 - bw / 2;
+	bx = width - bw * 1.5;
 	by = height - bw * 1.5;
-	let w = config.windy;
-	if (typeof(w) === "string" && w === "false") {
-		windy = boolean(w);
+	let d = config.day;
+	if (typeof(d) === "Number" && Number.isInteger(d)) {
+		day = d%365;
 	} else {
 		windy = true;
 	}
