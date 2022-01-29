@@ -16,6 +16,8 @@ from gen_17 import Gen17
 from gen_19 import Gen19
 from gen_22 import Gen22
 from gen_23 import Gen23
+from gen_26 import Gen26
+from gen_29 import Gen29
 from gen_
 from gen_util import GenUtil
 import random as rd
@@ -160,4 +162,18 @@ for i in range(1):
 	name = "gen23_" + str(i + 1)
 	colors = [(90,160,90),(20,60,20)]
 	p = Gen23(800, 800, [100,100], (255,255,255), colors, 2, [200,200], 5, [0.16,0.103], 600, 100)
+	p.canvas.canvas.show()
+
+#Gen 26
+for i in range(1):
+	name = "gen26_" + str(i + 4)
+	colors = [(223,0,102),(255,211,69),(241,233,219),(87,22,131)]
+	p = Gen26(800,800,(255,255,255),colors,0,[16,9],30,90,4)
+	p.canvas.canvas.show()
+
+#Gen 29
+for i in range(1):
+	name = "gen29_" + str(i + 26)
+	colors = [(30,30,30),(90,90,90),(160,160,160)]
+	p = Gen29(800, 800, [100,100], (255,255,255), colors, 15, [0,1], 0.1*i, 144, 3, 50, 0)
 	p.canvas.canvas.show()
