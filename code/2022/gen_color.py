@@ -10,9 +10,9 @@ class GenColor():
 
 	#Moving a color randomly in rgb color space...
 	def move(self, motion):
-		r = (self.c[0] + rd.randint(-motion,motion))%255
-		g = (self.c[1] + rd.randint(-motion,motion))%255
-		b = (self.c[2] + rd.randint(-motion,motion))%255
+		r = (self.c[0] + rd.randint(-motion,motion))%256
+		g = (self.c[1] + rd.randint(-motion,motion))%256
+		b = (self.c[2] + rd.randint(-motion,motion))%256
 		self.c = (r,g,b)
 
 	#Moving a color in its direction...
@@ -25,16 +25,16 @@ class GenColor():
 
 	#Moving a color without stopping...
 	def overflow(self, motion):
-		r = (self.c[0] + motion * self.d[0])%255
-		g = (self.c[1] + motion * self.d[1])%255
-		b = (self.c[2] + motion * self.d[2])%255
+		r = (self.c[0] + motion * self.d[0])%256
+		g = (self.c[1] + motion * self.d[1])%256
+		b = (self.c[2] + motion * self.d[2])%256
 		self.c = (r,g,b)
 
 	#Moving a color without stopping independently...
 	def independent_overflow(self, motion):
-		r = (self.c[0] + motion[0] * self.d[0])%255
-		g = (self.c[1] + motion[1] * self.d[1])%255
-		b = (self.c[2] + motion[2] * self.d[2])%255
+		r = (self.c[0] + motion[0] * self.d[0])%256
+		g = (self.c[1] + motion[1] * self.d[1])%256
+		b = (self.c[2] + motion[2] * self.d[2])%256
 		self.c = (r,g,b)
 
 	#Getting close to another color...

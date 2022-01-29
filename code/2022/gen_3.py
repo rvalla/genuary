@@ -46,7 +46,8 @@ class Gen3():
 	def start_epidemic(self, virus_colors, contacts_width):
 		for v in range(len(virus_colors)):
 			t = rd.uniform(self.virus_thresholds[0],self.virus_thresholds[1])
-			m = rd.randint(2,5)
+		#	m = rd.randint(2,5)
+			m = 500
 			d = rd.randint(3,8)
 			c = rd.randint(0,contacts_width)
 			contacts = (c - contacts_width, c)

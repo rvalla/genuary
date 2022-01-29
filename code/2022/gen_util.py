@@ -28,7 +28,7 @@ class GenUtil():
 		r = rd.randint(-motion,motion)
 		g = rd.randint(-motion,motion)
 		b = rd.randint(-motion,motion)
-		return ((color[0]+r)%255,(color[1]+g)%255,(color[2]+b)%255)
+		return ((color[0]+r)%256,(color[1]+g)%256,(color[2]+b)%256)
 
 	#A function to invert a color in rgb color space...
 	def invert_color(self, color):
@@ -40,7 +40,7 @@ class GenUtil():
 		g = rd.randint(-motion,motion)
 		b = rd.randint(-motion,motion)
 		a = rd.randint(-motion,motion)
-		return ((color[0]+r)%255,(color[1]+g)%255,(color[2]+b)%255,(color[3]+a)%255)
+		return ((color[0]+r)%256,(color[1]+g)%256,(color[2]+b)%256,(color[3]+a)%256)
 
 	#A function to invert a color in rgba color space...
 	def invert_alpha_color(self, color):

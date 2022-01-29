@@ -76,17 +76,16 @@ class Gen4():
 			for c in range(c_count):
 				self.colors[c] = ut.move_color(self.colors[c], 5)
 			t = 0
-			offset = rd.randint(1,200)+200
 			while t < 1000:
 				if self.is_point_in(p):
 					a = self.look_for_angle(p)
 					if not self.circles:
 						np = self.get_new_point(p, a, rd.randint(1,self.hw[0]//75))
-						self.canvas.draw_line(self.colors[(t//offset)%c_count], self.lw, (p[0]+self.margins[1],p[1]+self.margins[0]), (np[0]+self.margins[1],np[1]+self.margins[0]))
+						self.canvas.draw_line(self.colors[l%c_count], self.lw, (p[0]+self.margins[1],p[1]+self.margins[0]), (np[0]+self.margins[1],np[1]+self.margins[0]))
 					else:
 						s = math.sin(0.1 * t) * self.cd
 						np = self.get_new_point(p, a, s)
-						self.canvas.draw_circle(self.colors[(t//offset)%c_count], (np[0]+self.margins[1],np[1]+self.margins[0]), s)
+						self.canvas.draw_circle(self.colors[l%c_count], (np[0]+self.margins[1],np[1]+self.margins[0]), s)
 					p = np
 				t += 1
 
