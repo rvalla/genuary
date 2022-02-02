@@ -10,13 +10,14 @@ class Gen21():
 	"The class to make something combining Gen19 and Gen1..."
 
 	def __init__(self, active_width, active_height, margins, background, light, colors, color_motion, threshold,
-					levels, size_factor, start_density, start_size):
+					threshold_factor, levels, size_factor, start_density, start_size):
 		self.hw = (active_height, active_width)
 		self.margins = margins
 		self.cells = [1,1]
 		self.cells_state = [[1]]
 		self.cell_size = [active_height / self.cells[0], active_width / self.cells[1]]
 		self.threshold = threshold
+		self.t_factor = threshold_factor
 		self.levels = levels
 		self.size = start_size
 		self.size_factor = size_factor
@@ -35,6 +36,7 @@ class Gen21():
 						f = [rd.choice([13,17,19,23]),0]
 						self.draw(h, w, self.size, self.colors[l%len(self.colors)], color_motion, f)
 			self.update_cells()
+			self.threshold = self.threshold * self.t_factor
 			self.evaluate(self.colors[l%len(self.colors)])
 			self.size = [self.size[0] // 2, self.size[1] // 2]
 		print("Done!                     ", end="\n")
