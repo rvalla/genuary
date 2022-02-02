@@ -46,12 +46,9 @@ class Gen3():
 	def start_epidemic(self, virus_colors, contacts_width):
 		for v in range(len(virus_colors)):
 			t = rd.uniform(self.virus_thresholds[0],self.virus_thresholds[1])
-		#	m = rd.randint(2,5)
-			m = 500
+			m = rd.randint(2,5)
 			d = rd.randint(3,8)
-			c = rd.randint(0,contacts_width)
-			contacts = (c - contacts_width, c)
-			self.virus.append(GenVirus(virus_colors[v], contacts, t, m, d))
+			self.virus.append(GenVirus(virus_colors[v], contacts_width, t, m, d))
 		self.virus_count = len(self.virus)
 		for h in range(self.hw[0]):
 			l = []
@@ -66,7 +63,7 @@ class Gen3():
 			for i in range(self.virus_count):
 				x = round(center[1] + math.cos(angle * i + rotation) * radius[1])
 				y = round(center[0] + math.sin(angle * i + rotation) * radius[0])
-				self.pixels[y][x].infection(self.virus[i%self.virus_count], i%self.virus_count)
+				self.pixels[y][x].infection(self.virus[i%self.virus_count], i%self.virus_count, self.virus[i%self.virus_count].color)
 		else:
 			self.pixels[center[0]][center[1]].infection(self.virus[0], 0)
 
@@ -83,7 +80,7 @@ class Gen3():
 						x = p[1] + j
 						y = p[0] + i
 						if y >= 0 and y < self.hw[0] and x >= 0 and x < self.hw[1]:
-							self.pixels[y][x].infection(self.virus[v], v)
+							self.pixels[y][x].infection(self.virus[v], v, self.virus[v].color)
 			self.pixels[p[0]][p[1]].update()
 		for v in self.virus:
 			v.update()
