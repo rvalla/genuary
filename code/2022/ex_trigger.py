@@ -18,6 +18,8 @@ from gen_22 import Gen22
 from gen_23 import Gen23
 from gen_26 import Gen26
 from gen_29 import Gen29
+from gen_30 import Gen30
+from gen_31 import Gen31
 from gen_
 from gen_util import GenUtil
 import random as rd
@@ -177,3 +179,18 @@ for i in range(1):
 	colors = [(30,30,30),(90,90,90),(160,160,160)]
 	p = Gen29(800, 800, [100,100], (255,255,255), colors, 15, [0,1], 0.1*i, 144, 3, 50, 0)
 	p.canvas.canvas.show()
+
+#Gen 30
+for i in range(1):
+	name = "gen30_" + str(i + 37)
+	colors = [(30,30,30),(90,90,90),(160,160,160)]
+	signal = ut.random_signal(1,5,10)
+	p = Gen30(600, 600, [140,140], (255,255,255), colors, 25, signal, 0.5, 10, 8, 1.2, 5, 21, [34,55], False, 0.4)
+	p.canvas.canvas.show()
+
+#Gen 31
+for i in range(1):
+	name = "gen31_" + str(i + 9)
+	image_path = "assets/input/negativespace_0.jpg"
+	p = Gen31(1600, 800, [140,160], image_path, [0.05,0.03], 5, 120)
+	p.canvas.show()

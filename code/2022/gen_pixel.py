@@ -11,10 +11,10 @@ class GenPixel():
 		self.infection_evol = None
 		self.infection_end = None
 
-	def infection(self, virus, virus_id):
+	def infection(self, virus, virus_id, color):
 		if self.is_infected == False and self.is_immune == False:
 			self.infection_evol = 0
-			self.c = virus.color
+			self.c = color
 			self.virus_id = virus_id
 			self.is_infected = True
 			self.infection_end = virus.duration
