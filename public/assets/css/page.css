@@ -197,7 +197,7 @@ h2, h3 {
 }
 
 iframe {
-  width: 90%;
+  width: 100%;
 	display: block;
   background-color: inherit;
   border-width: 0;
@@ -209,8 +209,8 @@ iframe {
 }
 
 iframe.full {
-  height: 90%;
-  min-height: 40vh;
+  height: 80%;
+  min-height: 50vh;
 }
 
 iframe.video {
@@ -336,6 +336,7 @@ a:hover {
 .vimeo {
 	display: block;
 	width: 100%;
+	min-height: 40vh;
 	margin: auto;
 	padding: 0.5%;
 }
