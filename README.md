@@ -17,7 +17,7 @@ All website's material is in *public* folder. The *code* folder contains all the
 ## azarte_bot
 
 I decided that **@azarte_bot** will be always part of **#genuary**. It is a telegram bot to play with randomness
-artistically but directly in a chat. You can reach it [here]("https://t.me/azarte_bot")
+artistically but directly in a chat. You can reach it [here](https://t.me/azarte_bot)
 and send it the */genuary* command.  
 
 ## standing upon the shoulders of giants
