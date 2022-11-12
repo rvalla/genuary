@@ -29,7 +29,7 @@ class Gen2():
 					v = 0
 				else:
 					v = 255
-				e = b - v
+				e = color[channel] - v
 				color[channel] = v
 				self.input[r][(c+1)%self.input.shape[1]][channel] += e
 				self.input[(r+1)%self.input.shape[0]][c][channel] += e * 0.5

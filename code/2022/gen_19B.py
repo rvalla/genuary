@@ -7,12 +7,12 @@ ut = GenUtil()
 class Gen19B():
 	"The class to create something with text..."
 
-	def __init__(self, active_width, active_height, margins, background, color, color_motion, line_width, message):
+	def __init__(self, active_width, active_height, margins, background, color, color_motion, line_width, message, module):
 		self.hw = [active_height, active_width]
 		self.lw = line_width
 		self.margins = margins
 		self.canvas = DCanvas(self.hw[1] + self.margins[1] * 2, self.hw[0] + self.margins[0] * 2, background)
-		self.curve = GenMessageCurve(message, active_width, active_height, margins)
+		self.curve = GenMessageCurve(message, module, active_width, active_height, margins)
 		self.colors = [color, ut.invert_color(color)]
 		self.paint_curve(color_motion)
 

@@ -4,15 +4,14 @@ class GenMessageCurve():
 	"A class to transform text into curves..."
 
 	#Building the curve...
-	def __init__(self, message, width, height, margins):
+	def __init__(self, message, module, width, height, margins):
 		self.s = [width, height]
 		self.m = margins
 		self.length = len(message) + 1
 		self.limits = [[0,0.01],[0,0.01]]
 		self.points = [(0,0)]
 		self.blanks = set()
-		self.subdivisions = [3,4,5,6,8,12,16]
-		self.module = self.subdivisions[len(message)%7]
+		self.module = module
 		self.base_angle = math.pi * 2 / self.module
 		self.build_points(message)
 		self.scales, self.margins = self.get_scales_and_margins()

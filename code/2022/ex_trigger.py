@@ -151,7 +151,7 @@ for i in range(1):
 	name = "gen19B_" + str(i + 1)
 	color = (220,100,60)
 	m = """Generative art refers to art that in whole or in part has been created with the use of an autonomous system. An autonomous system in this context is generally one that is non-human and can independently determine features of an artwork that would otherwise require decisions made directly by the artist. In some cases the human creator may claim that the generative system represents their own artistic idea, and in others that the system takes on the role of the creator."""
-	p = Gen19B(800, 800, [140,140], (255,255,255), color, 5, 3, m)
+	p = Gen19B(800, 800, [140,140], (255,255,255), color, 5, 3, m, 5)
 	p.canvas.canvas.show()
 
 #Gen 21
