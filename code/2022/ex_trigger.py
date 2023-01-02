@@ -21,7 +21,6 @@ from gen_26 import Gen26
 from gen_29 import Gen29
 from gen_30 import Gen30
 from gen_31 import Gen31
-from gen_
 from gen_util import GenUtil
 import random as rd
 
