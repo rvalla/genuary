@@ -1,6 +1,7 @@
 import math
 import time as tm
 import random as rd
+import numpy as np
 from PIL import Image as im, ImageStat as stats
 
 
@@ -53,6 +54,11 @@ class GenUtil():
 		b = color[2] + round((destiny[0] - color[2]) * speed)
 		return (r,g,b)
 
+	#A function to get color matrix from an image...
+	def get_image_data(self, image_path, height, width):
+		image = im.open(image_path).resize((width, height))
+		return np.array(image)
+
 	#A function to get an image combining two images...
 	def mean_image(self, back_image, top_image, name):
 		back_image.convert("RGBA")
@@ -68,6 +74,12 @@ class GenUtil():
 		back_image = im.new("RGBA", top_image.size, background)
 		new = im.composite(back_image, top_image, mask)
 		new.save(name + ".jpg")
+	
+	#A function to save a framed image...
+	def save_frame_image(self, top_image, margins, name):
+		frame = im.new("RGB", (top_image.size[0] + margins[1] * 2, top_image.size[1] + margins[0] * 2), (255,255,255))
+		frame.paste(top_image, (margins[1], margins[0]))
+		frame.save(name + ".jpg")
 
 	#A function to build a random signal...
 	def random_signal(self, base_frequency, base_amplitude, components):

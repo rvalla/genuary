@@ -37,3 +37,21 @@ def gen_2(hw, mg, background, color, noise_width, lines, lines_width, name):
 		color.move(3)
 	
 	canvas.save("assets/img/", "gen2_" + name)
+
+def gen_3(hw, mg, background, image_path, row_offset, column_offset, offset_threshold, name):
+	"The function to create some glitch art..."
+
+	canvas = NCanvas(hw[1], hw[0], background)
+	canvas.load_data(image_path)
+	image = ut.get_image_data(image_path, hw[0], hw[1])
+
+	for r in range(hw[0]):
+		if rd.random() < offset_threshold:
+			canvas.paint_row(image[r], r, rd.randint(0,row_offset))
+	
+	for c in range(hw[1]):
+		if rd.random() < offset_threshold:
+			canvas.paint_column(image[:,c], c, rd.randint(0,column_offset))
+	
+	file_name = "assets/img/gen3_" + name
+	ut.save_frame_image(canvas.get_image(), mg, file_name)

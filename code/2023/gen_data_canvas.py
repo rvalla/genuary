@@ -18,6 +18,16 @@ class NCanvas():
 	#Setting up a pixel color...
 	def paint_pixel(self, color, x, y):
 		self.data[y][x] = color
+	
+	#Setting up a row colors...
+	def paint_row(self, row, y, offset):
+		for c in range(self.w):
+			self.data[y][c] = row[(c+offset)%row.shape[0]]
+
+	#Setting up a column colors...
+	def paint_column(self, column, x, offset):
+		for r in range(self.h):
+			self.data[r][x] = column[(r+offset)%column.shape[0]]
 
 	#Inverting a pixel color...
 	def invert_pixel(self, x, y):
@@ -52,3 +62,8 @@ class NCanvas():
 		data = np.array(np.round(self.data), dtype="uint8")
 		image = im.fromarray(data)
 		image.show()
+
+	#Function to get the image object...
+	def get_image(self):
+		data = np.array(np.round(self.data), dtype="uint8")
+		return im.fromarray(data)
