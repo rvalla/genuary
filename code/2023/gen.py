@@ -55,3 +55,26 @@ def gen_3(hw, mg, background, image_path, row_offset, column_offset, offset_thre
 	
 	file_name = "assets/img/gen3_" + name
 	ut.save_frame_image(canvas.get_image(), mg, file_name)
+
+def gen_4(hw, mg, background, signal_a, signal_b, signal_height, angle_unit, colors, color_motion, name):
+	"The function to draw the intersection between two signals..."
+
+	canvas = DCanvas(hw[1] + mg[1] * 2, hw[0] + mg[0] * 2, background)
+	colors = [GenColor(c) for c in colors]
+	active_color = 0
+	zero = hw[0] // 2
+	signal_a = [round(ut.get_signal_y(signal_a, x * angle_unit, signal_height),2) for x in range(hw[1])]
+	signal_b = [round(ut.get_signal_y(signal_b, x * angle_unit, signal_height),2) for x in range(hw[1])]
+
+	for c in range(hw[1]):
+		x = mg[1] + c
+		y1 = zero + signal_a[c]
+		y2 = zero + signal_b[c]
+		canvas.draw_line(colors[active_color].c, 1, (x, mg[0] + y1), (x, mg[0] + y2))
+
+		if abs(y1 - y2) < 2:
+			colors[active_color].move(color_motion)
+			active_color = (active_color + 1) % len(colors)
+
+	canvas.save("assets/img/", "gen4_" + name)
+	

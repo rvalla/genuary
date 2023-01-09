@@ -52,6 +52,10 @@ class DCanvas():
 	def write(self, x, y, cell, message, font, color):
 		self.draw.text((x,y), message, anchor="mm", font=font, fill=color)
 
+	#Function to show the drawing...
+	def show(self):
+		self.canvas.show()
+
 	#Function to save the drawing...
 	def save(self, filepath, filename):
 		self.canvas.save(filepath + filename + ".jpg")

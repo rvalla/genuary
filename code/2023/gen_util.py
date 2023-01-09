@@ -105,7 +105,7 @@ class GenUtil():
 	def get_signal_y(self, signal, angle, scale):
 		y = 0
 		for s in signal:
-			y += math.sin(s[0] * (angle + s[2])) * s[1] * scale
+			y += math.sin(s[0] * angle + s[2]) * s[1] * scale
 		return y
 
 	def gen_alpha_rectangle(self, canvas, w, h, location, density, colors, color_motion, factors, size_factor, constant_size):
