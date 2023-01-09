@@ -149,3 +149,15 @@ class GenUtil():
 				canvas.draw_rectangle(c, center, aux_size)
 				c = self.move_color(c, color_motion)
 			colors[active_color] = c
+	
+	def gen_sampled_rectangle(self, canvas, w, h, location, density, image, size_factor):
+		steps = [h // density[0], w // density[1]]
+		thinghw = [steps[1] * size_factor, steps[0] * size_factor]
+		aux_size = thinghw
+		for i in range(density[0]):
+			for j in range(density[1]):
+				x = steps[1] / 2 + j * steps[1]
+				y = steps[0] / 2 + (j + i)%density[0] * steps[0]
+				c = (image[int(y)][int(x)][0], image[int(y)][int(x)][1], image[int(y)][int(x)][2]) 
+				center = (location[1] + x, location[0] + y)
+				canvas.draw_rectangle(c, center, aux_size)

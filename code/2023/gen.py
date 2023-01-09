@@ -77,4 +77,18 @@ def gen_4(hw, mg, background, signal_a, signal_b, signal_height, angle_unit, col
 			active_color = (active_color + 1) % len(colors)
 
 	canvas.save("assets/img/", "gen4_" + name)
+
+def gen_7(hw, mg, background, image_path, density, size_factor, rounds, name):
+	"The function to make something sampling colors..."
+
+	canvas = DCanvas(hw[1] + mg[1] * 2, hw[0] + mg[0] * 2, background)
 	
+	for r in range(rounds):
+		w = hw[1] // pow(2,r)
+		h = hw[0] // pow(2,r)
+		image = ut.get_image_data(image_path, h, w)
+		for t in range(rd.randint(1,pow(2,r) + 1)):
+			location = (mg[0] + rd.randint(0,pow(2,r)-1) * w, mg[1] + rd.randint(0,pow(2,r)-1) * h)
+			ut.gen_sampled_rectangle(canvas, w, h, location, density, image, size_factor)
+
+	canvas.save("assets/img/", "gen7_" + name)
