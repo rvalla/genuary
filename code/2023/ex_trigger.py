@@ -23,6 +23,10 @@ signal_b = ut.random_signal(1,1,4) #Another signal
 colors = [(120,50,0),(50,120,0),(0,50,120)] #The colors
 gen.gen_4((880,1720), (100,100), (255,255,255), signal_a, signal_b, 150, 0.005, colors, 45, "12")
 
+#Genuary6 
+#gen_6(hw, mg, background, image_path, rounds, name)
+gen.gen_6((800,800), (140,560), (255,255,255), "assets/input/gen6_01.jpg", 10, "4")
+
 #Genuary7 (creating something with the colors from an album cover)
 #gen_7(hw, mg, background, image_path, density, size_factor, rounds, name)
 gen.gen_7((800,800), (140,560), (255,255,255), "assets/input/gen7_01.jpg", [9,9], 0.8, 4, "1")

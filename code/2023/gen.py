@@ -78,6 +78,24 @@ def gen_4(hw, mg, background, signal_a, signal_b, signal_height, angle_unit, col
 
 	canvas.save("assets/img/", "gen4_" + name)
 
+def gen_6(hw, mg, background, image_path, rounds, name):
+	"The function to make something stealing like an artist..."
+
+	canvas = DCanvas(hw[1] + mg[1] * 2, hw[0] + mg[0] * 2, background)
+	image = ut.get_image_data(image_path, hw[0], hw[1])
+
+	for r in range(1,rounds):
+		w = hw[1] // pow(2,r)
+		h = hw[0] // pow(2,r)
+		for t in range(rd.randint(1,pow(2,r) + 1)):
+			x = rd.randint(0,pow(2,r)-1) * w + w // 2
+			y = rd.randint(0,pow(2,r)-1) * h + + h // 2
+			location = (mg[1] + x, mg[0] + y)
+			c = (image[int(y)][int(x)][0], image[int(y)][int(x)][1], image[int(y)][int(x)][2])
+			canvas.draw_circle(c, location, w)
+
+	canvas.save("assets/img/", "gen6_" + name)
+
 def gen_7(hw, mg, background, image_path, density, size_factor, rounds, name):
 	"The function to make something sampling colors..."
 
