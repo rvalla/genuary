@@ -64,6 +64,18 @@ class GenUtil():
 	#Get a color tuple from a list...
 	def get_color_tuple(self, color):
 		return (color[0], color[1], color[2])
+
+	#Controlled average the colors of a matrix...
+	def control_color_average_matrix(self, color_matrix, control_matrix):
+		for r in range(len(color_matrix)):
+			for c in range(len(color_matrix[0])):
+				self.control_color_average(color_matrix[r][c], control_matrix[r][c])
+
+	#Controlled average for color...
+	def control_color_average(self, color, control):
+		for i in range(3):
+			if control[i] > 0:
+				color[i] = color[i] // control[i]
 	
 	#Scaling down the colors of a matrix...
 	def scale_color_matrix(self, matrix, divisor):
@@ -102,13 +114,13 @@ class GenUtil():
 		v = None
 		if symbol in self.symbol_color_mapping[0]:
 			c = 0
-			v = 255 - 22 * (self.symbol_color_mapping[0].index(symbol) + 1)
+			v = 255 - (21 * (self.symbol_color_mapping[0].index(symbol) + 1))
 		elif symbol in self.symbol_color_mapping[1]:
 			c = 1
-			v = 255 - 22 * (self.symbol_color_mapping[1].index(symbol) + 1)
+			v = 255 - (21 * (self.symbol_color_mapping[1].index(symbol) + 1))
 		elif symbol in self.symbol_color_mapping[2]:
 			c = 2
-			v = 255 - 22 * (self.symbol_color_mapping[2].index(symbol) + 1)
+			v = 255 - (21 * (self.symbol_color_mapping[2].index(symbol) + 1))
 		else:
 			c = rd.choice([0,1,2])
 			v = 5

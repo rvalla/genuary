@@ -5,5 +5,7 @@ import random as rd
 ut = GenUtil()
 
 #Genuary29 (Grid-based graphic design)
-#gen_29((h,w),(mh,mw),background,grid_size,text,name)
-gen.gen_29((1080,1080), (100,100), (255,255,255), 16, "There is a text here", "name")
+#We load some text first
+text = open("assets/input/borges_remordimiento.txt").read()
+#gen_29((sq_size_h,sq_size_w),(mh,mw), symbols_per_row_and_column, background, text, name)
+gen.gen_29((45,45), (100,100), 8, (255,255,255), text, "name")
