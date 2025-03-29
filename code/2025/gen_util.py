@@ -65,6 +65,14 @@ class GenUtil():
 	def get_color_tuple(self, color):
 		return (color[0], color[1], color[2])
 
+	#Get a color tuple discarding two channels...
+	def get_color_channel(self, color, channel):
+		rgb = [0,0,0]
+		for i in range(3):
+			if channel == i:
+				rgb[i] = color[i]
+		return (rgb[0], rgb[1], rgb[2])
+
 	#Controlled average the colors of a matrix...
 	def control_color_average_matrix(self, color_matrix, control_matrix):
 		for r in range(len(color_matrix)):
