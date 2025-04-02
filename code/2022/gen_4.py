@@ -85,7 +85,7 @@ class Gen4():
 					else:
 						s = math.sin(0.1 * t) * self.cd
 						np = self.get_new_point(p, a, s)
-						self.canvas.draw_circle(self.colors[l%c_count], (np[0]+self.margins[1],np[1]+self.margins[0]), s)
+						self.canvas.draw_circle(self.colors[l%c_count], (np[0]+self.margins[1],np[1]+self.margins[0]), abs(s))
 					p = np
 				t += 1
 
