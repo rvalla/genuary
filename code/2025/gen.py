@@ -149,8 +149,8 @@ def gen_29c(sq_size, mg, lw, color, background, word_a, word_b, name):
 	canvas = DCanvas(sq_size[1] * grid_a + mg[1] * 2, sq_size[0] * grid_b + mg[0] * 2, background)
 
 	#We are ready to draw our canvas...
-	for r in range(1,grid_a):
-		for c in range(1,grid_b):
+	for r in range(grid_a):
+		for c in range(grid_b):
 				canvas.draw_line(ut.get_color_tuple(row_matrix[c][r]), lw, (r*sq_size[1]+mg[1],c*sq_size[0]+mg[0]), (r*sq_size[1]+mg[1], (c+1)*sq_size[0]+mg[0]))
 				canvas.draw_line(ut.get_color_tuple(col_matrix[c][r]), lw, (r*sq_size[1]+mg[1], c*sq_size[0]+mg[0]), ((r+1)*sq_size[1]+mg[1], c*sq_size[0]+mg[0]))
 
