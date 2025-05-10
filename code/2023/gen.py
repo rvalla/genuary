@@ -110,3 +110,29 @@ def gen_7(hw, mg, background, image_path, density, size_factor, rounds, name):
 			ut.gen_sampled_rectangle(canvas, w, h, location, density, image, size_factor)
 
 	canvas.save("assets/img/", "gen7_" + name)
+
+def gen_23(hw, mg, background, color, color_motion, signal, signal_height, angle_unit, fase_offset_w, mutation_width, name):
+	"Let's create a moiré pattern..."
+
+	canvas = DCanvas(hw[1] + mg[1] * 2, hw[0] + mg[0] * 2, background)
+	i_color = ut.invert_color(color)
+
+	for r in range(1,hw[0]//5):
+		start_angle = rd.random()*fase_offset_w
+		last_y = ut.get_signal_y(signal, angle_unit + start_angle, signal_height)
+		last_x = last_y
+		for c in range(1,hw[1]):
+			y = ut.get_signal_y(signal, start_angle + (angle_unit * c), signal_height)
+			canvas.draw_line(color,1,(mg[0]+c, mg[1]+r*5+last_y), (mg[0]+c, mg[1]+r*5+y))
+			last_y = y
+		ut.mutate_signal(signal, mutation_width)
+		color = ut.move_color(color, color_motion)
+	for c in range(1,hw[1]//5):
+		for r in range(1,hw[0]):
+			x = ut.get_signal_y(signal, start_angle + (angle_unit * r), signal_height)
+			canvas.draw_line(i_color,1,(mg[0]+c*5+last_x, mg[1]+r), (mg[0]+c*5+x, mg[1]+r))
+			last_x = x
+		ut.mutate_signal(signal, mutation_width)
+		i_color = ut.move_color(i_color, color_motion)
+
+	canvas.save("assets/img/", "gen23_" + name)

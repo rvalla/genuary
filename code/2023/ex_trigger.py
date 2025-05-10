@@ -30,3 +30,7 @@ gen.gen_6((800,800), (140,560), (255,255,255), "assets/input/gen6_01.jpg", 10, "
 #Genuary7 (creating something with the colors from an album cover)
 #gen_7(hw, mg, background, image_path, density, size_factor, rounds, name)
 gen.gen_7((800,800), (140,560), (255,255,255), "assets/input/gen7_01.jpg", [9,9], 0.8, 4, "1")
+
+#Genuary23 (more moiré)
+signal = ut.random_signal(1,1,6)
+gen.gen_23((1080,1920), (140,140), (255,255,255), (75,50,25), 30, signal, 30, 0.02, 0.45, 0.35, "23")

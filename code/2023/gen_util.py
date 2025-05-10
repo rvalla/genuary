@@ -31,6 +31,11 @@ class GenUtil():
 		b = rd.randint(-motion,motion)
 		return ((color[0]+r)%256,(color[1]+g)%256,(color[2]+b)%256)
 
+	#Moving a color grayscale space...
+	def move_gray(self, color, motion):
+		g = rd.randint(-motion,motion)
+		return ((color[0]+g)%256,(color[0]+g)%256,(color[0]+g)%256)
+
 	#A function to invert a color in rgb color space...
 	def invert_color(self, color):
 		return (255-color[0],255-color[1],255-color[2])
@@ -85,7 +90,7 @@ class GenUtil():
 	def random_signal(self, base_frequency, base_amplitude, components):
 		signal = []
 		for c in range(components):
-			fq = rd.random() * base_frequency
+			fq = base_frequency + (rd.random() * base_frequency)
 			a = base_amplitude / (c + 1)
 			fase = rd.random() * math.pi * 2
 			signal.append((fq, a, fase))
@@ -100,6 +105,17 @@ class GenUtil():
 			fase = rd.random() * math.pi * 2
 			signal.append((fq, a, fase))
 		return signal
+
+	#A function to mutate a signal...
+	def mutate_signal(self, signal, width):
+		noise = rd.random()*width - width/2 + 1
+		c = rd.randint(0,len(signal)-1)
+		atributes = rd.sample(range(3),2)
+		component = [signal[c][0], signal[c][1], signal[c][2]]
+		component[atributes[0]] = component[atributes[0]]*noise
+		component[atributes[1]] = component[atributes[1]]*noise
+		signal.pop(c)
+		signal.append((component[0],component[1],component[2]))
 	
 	#A function to get signal amplitude...
 	def get_signal_y(self, signal, angle, scale):
