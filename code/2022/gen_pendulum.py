@@ -38,8 +38,8 @@ class GenPendulum():
 		m = self.g / (vector[0]*vector[0] + vector[1]*vector[1])
 		if m < 0.1:
 			m = 0.1
-		elif m > 8:
-			m = 8
+		elif m > 1:
+			m = 1
 		return m
 
 	def set_vector(self, difference, magnitude):
